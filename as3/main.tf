@@ -1,7 +1,7 @@
 provider "bigip" {
-  address  = "https://${var.address}:${var.port}"
-  username = var.username
-  password = var.password
+  address  = data.terraform_remote_state.consul_sd.outputs.F5_UI
+  username = data.terraform_remote_state.consul_sd.outputs.F5_Username
+  password = data.terraform_remote_state.consul_sd.outputs.F5_Password
 }
 # pin to 1.1.2
 terraform {
