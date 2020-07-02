@@ -54,7 +54,10 @@ jobs:
     - name: Deregister Service Definition
       run: |
         export CONSUL_HTTP_SSL_VERIFY=false
-        (consul services deregister -http-addr=${{ steps.consul_host.outputs.consul_host }} -id=david)
+        for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "name of chnaged file = ${changed_file}"
+          (consul services deregister -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
+        done
         
     - name: Show Registered Services
       run: |
