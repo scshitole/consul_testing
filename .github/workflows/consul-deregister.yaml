@@ -50,6 +50,10 @@ jobs:
       id: consul_host
       run: | 
         echo ::set-output name=consul_host::$(cat ./s3-variables | jq '.outputs.Consul_UI.value')
+
+    - name: get list of changed files
+      id: files
+      uses: jitterbit/get-changed-files@v1
         
     - name: Deregister Service Definition
       run: |
