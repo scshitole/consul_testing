@@ -7,7 +7,7 @@ name: Consul Register Service
 on:
   push:
     paths:
-    - "consul/register/**"
+    - "declarations/consul/register/**"
     branches: [ master ]
   pull_request:
     branches: [ master ]
@@ -51,10 +51,17 @@ jobs:
       run: | 
         echo ::set-output name=consul_host::$(cat ./s3-variables | jq '.outputs.Consul_UI.value')
         
+    - name: get list of changed files
+      id: files
+      uses: jitterbit/get-changed-files@v1
+
     - name: Deregister Service Definition
       run: |
         export CONSUL_HTTP_SSL_VERIFY=false
-        (consul services register -http-addr=${{ steps.consul_host.outputs.consul_host }} ./new-service.json)
+        for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "name of chnaged file = ${changed_file}"
+          (consul services register -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
+        done
         
     - name: Show Registered Services
       run: |
