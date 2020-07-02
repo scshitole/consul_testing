@@ -7,7 +7,7 @@ name: Consul Deregister Service
 on:
   push:
     paths:
-    - "consul/deregister/**"
+    - "declarations/consul/deregister/**"
     branches: [ master ]
   pull_request:
     branches: [ master ]
