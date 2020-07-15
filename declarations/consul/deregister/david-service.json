@@ -7,7 +7,7 @@
           "id": "david",
           "name": "nginx TCP Check",
           "tcp": "localhost:80",
-          "interval": "5s",
+          "interval": "7s",
           "timeout": "1s"
         }
       ]
