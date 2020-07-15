@@ -3,7 +3,7 @@ name: Deploy AS3 Declaration
 on:
   push:
     paths:
-    - "declarations/as3/register/**"
+    - "declarations/as3/**"
     branches: [ master ]
 
 jobs:
