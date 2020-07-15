@@ -113,6 +113,13 @@ resource "aws_security_group" "consul" {
   }
 
   ingress {
+    from_port   = 8600
+    to_port     = 8600
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     from_port   = 8300
     to_port     = 8300
     protocol    = "tcp"

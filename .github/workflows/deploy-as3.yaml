@@ -1,0 +1,94 @@
+name: TEST!!!
+
+on:
+  push:
+    paths:
+    - "declarations/as3/register/**"
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: read S3 bucket
+      uses: prewk/s3-cp-action@master
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1' # optional: defaults to us-east-1
+        SOURCE: 's3://dgarrison-consul-sd/deploy-infrastructure'
+        DEST: './s3-variables'
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install f5-cli
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
+    - name: Read BIGIP Host Data
+      id: bigip
+      run: | 
+        echo ::set-output name=bigip_host::$(cat ./s3-variables | jq '.outputs.F5_IP.value')
+        echo ::set-output name=bigip_password::$(cat ./s3-variables | jq '.outputs.F5_Password.value')
+      
+    - name: Display BIGIP Host
+      run: |
+         echo "BIGIP host is = ${{ steps.bigip.outputs.bigip_host }}"
+         echo "BIGIP password is = ${{ steps.bigip.outputs.bigip_password }}"
+  
+
+# f5 login --authentication-provider bigip --host ${{ steps.bigip.outputs.bigip_host }} --user admin --password ${{ steps.bigip.outputs.bigip_password }}
+
+    - name: F5 CLI Login
+      id: login
+      env: 
+        SECRET_NAME: ${{ steps.bigip.outputs.bigip_password }}
+      run: |
+        f5 config set-defaults --disable-ssl-warnings true --auto-approve
+        f5 login --authentication-provider bigip --host ${{ steps.bigip.outputs.bigip_host }} --port 8443 --user admin --password ${{ steps.bigip.outputs.bigip_password }}
+    - name: Check AS3 Installed
+      id: verify
+      run: | 
+        echo ::set-output name=verify_results::$(f5 bigip extension as3 verify 2>&1)
+
+
+    - name: set output variables
+      id: set_outputs
+      run: |
+        echo ::set-output name=as3_installed::$(f5 bigip extension as3 verify 2>&1 | jq '.installed')
+
+    - name: Evaluate verify results
+      id: check_as3_installed
+#      if: steps.set_outputs.output.as3_installed == false
+      run: echo "THIS IS THE INSTALL STATUS " ${{ steps.set_outputs.outputs.as3_installed }}
+
+    - name: upgrade if needed
+      id: upgrade_as3
+      if: steps.set_outputs.outputs.as3_current < steps.set_outputs.outputs.as3_latest
+      run: echo 'installed as3 version older than latest version'    
+    
+    - name: get list of changed files
+      id: files
+      uses: jitterbit/get-changed-files@v1
+      
+    - name: deploy as3 declaration
+      id: deploy_as3
+      if: steps.verify.outputs.verify_results
+      run: |
+        for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "name of chnaged file = ${changed_file}"
+          echo ::set-output name=deploy_results::$(f5 bigip extension as3 create --declaration ${changed_file} 2>&1 | jq '.results[0] .code')
+          echo "F5 AS3 declaration deploy result #1 = $deploy_results"
+          echo "F5 AS3 declaration deploy result #2 = ${{ steps.deploy_as3.outputs.deploy_results }}"          
+        done
+    
+    - name: show f5 as3 deploy result
+      run: echo "F5 AS3 declaration deploy result = ${{ steps.deploy_as3.outputs.deploy_results }}"
