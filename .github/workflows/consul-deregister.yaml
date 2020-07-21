@@ -58,8 +58,9 @@ jobs:
     - name: Deregister Service Definition
       run: |
         export CONSUL_HTTP_SSL_VERIFY=false
-        bash for changed_file in ${{ steps.files.outputs.all }}; do
-          if [[ $changed_file =~  ^declarations/consul/deregister/.* ]] then
+        for changed_file in ${{ steps.files.outputs.all }}; do
+          if [[ $changed_file =~  ^declarations/consul/deregister/.* ]]
+          then
             echo "name of chnaged file = ${changed_file}"
             (consul services deregister -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
           fi
