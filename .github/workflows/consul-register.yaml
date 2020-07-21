@@ -59,7 +59,7 @@ jobs:
       run: |
         export CONSUL_HTTP_SSL_VERIFY=false
         for changed_file in ${{ steps.files.outputs.all }}; do
-          echo "name of chnaged file = ${changed_file}"
+        if [[ $changed_file =~  ^declarations/consul/register/.* ]]
           (consul services register -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
         done
         
