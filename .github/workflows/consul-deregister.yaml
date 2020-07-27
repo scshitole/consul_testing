@@ -58,7 +58,7 @@ jobs:
     - name: Deregister Service Definition
       run: |
         export CONSUL_HTTP_SSL_VERIFY=false
-        for changed_file in ${{ steps.files.outputs.added }}; do
+        for changed_file in ${{ steps.files.outputs.added_modified }}; do
           if [[ $changed_file =~  ^declarations/consul/deregister/.* ]]
           then
             echo "name of chnaged file = ${changed_file}"
