@@ -82,7 +82,7 @@ jobs:
       
     - name: deploy as3 declaration
       id: deploy_as3
-      if: steps.verify.outputs.verify_results
+      if: steps.verify.outputs.verify_results && steps.files.output.added
       run: |
         for changed_file in ${{ steps.files.outputs.added }}; do
           echo "name of chnaged file = ${changed_file}"
