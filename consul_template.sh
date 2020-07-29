@@ -8,12 +8,11 @@ sudo apt-get install unzip -y
 #Download Consul
 CONSUL_TEMPLATE_VERSION="0.25.1"
 curl --silent --remote-name https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
-curl --silent --remote-name https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
 
-#Install Consul
-sudo unzip -o consul_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
-sudo chown root:root consul_template
-sudo mv consul /usr/local/bin/
+#Install Consul Template
+sudo unzip -o consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
+sudo chown root:root consul-template
+sudo mv consul-template /usr/local/bin/
 
 # #Create Consul User
 # sudo useradd --system --home /etc/consul.d --shell /bin/false consul
