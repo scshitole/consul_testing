@@ -34,8 +34,10 @@ jobs:
         DEST: './s3-variables'
 
     # Runs a single command using the runners shell
-    - name: Install Consul CLI
-      run: sudo sh ./consul.sh
+    - name: Install Consul CLI & Consul Templating
+      run: |
+       sudo sh ./consul.sh
+       sudo sh ./consul_template.sh
 
     # Runs a set of commands using the runners shell
     - name: Check version of Consul
