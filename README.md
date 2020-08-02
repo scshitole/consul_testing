@@ -77,7 +77,7 @@ BIG-IP.\
 \
 While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github.\ 
 
-Personal Github accounts are free and, if you don't already have one, please see this link: [`Signing up for Github`]`(https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
+Personal Github accounts are free and, if you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
 
 ### Workflows
 Workflows are automatically triggered when Consul or AS3 declarations are pushed to your Github repo.
