@@ -79,11 +79,14 @@ While the steps to provision the infrastructure are run locally on your desktop 
 \
 ### Workflows
 Workflows are triggered when Consul or AS3 declarations are pushed to the Github repo. There are four workflows defined:
-- Consul register
-  - Put services to be defined in Consul in the /declarations/consul/register directory
-- Consul deregister
-- AS3 register
-- AS3 deregister
+- Register New Consul Service
+  -  Put new service definitions to be registered in Consul in the /declarations/consul/register directory, commit and push to Github
+- Deregister Existing Consul Service
+  - Put existing service definitions to be de-registered in Consul in the /declarations/consul/deregister directory, commit and push to Github
+- Register New AS3 Declaration
+  - Put new AS3 declarations to be registered in BIG-IP in the /declarations/as3/register directory, commit and push to Github
+- Deregister Existing AS3 Declaration
+  - Put empty AS3 declarations to be de-registered in BIG-IP in the /declarations/as3/deregister directory, commit and push to Github
 
 
 
