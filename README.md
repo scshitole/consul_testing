@@ -28,7 +28,7 @@ The `terraform` directory has tf files for creating instances for consul, f5, ia
 - `outputs.tf` is used to output and display F5 BIG-IP management IP and F5 BIG-IP dynamic Password
 
 
-## Steps 
+### Steps 
 - Clone the repository & change working directory to terraform
 ```
 git clone https://github.com/hashicorp/f5-terraform-consul-sd-webinar
@@ -50,7 +50,7 @@ terraform apply
   - It may take up to 5 minutes or after the run is complete for the environment to become ready. The URL for the BIG-IP UI is provided as part of the output.  Verify you can reach the UI before proceeding.
 
 
-## Configure BIG-IP
+### Configure BIG-IP
 
 
 Next we need to download and load AS3 rpm into BIG-IP, for AS3 documentation and download please refer to https://github.com/F5Networks/f5-appsvcs-extension  note :- this currently uses AS3 3.7.0 rpm image
