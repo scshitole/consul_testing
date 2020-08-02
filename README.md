@@ -9,15 +9,16 @@ You can check out a recording of this demo [here](https://youtu.be/rVTgTXpiopc?t
 
 # How to use this repo
 
-This repo comprises two main operations:
+This repo comprises two main functions:
 
-- Initial deployoment of the of the architecture in AWS
+- Initial provisioning of the of the infrastructure in AWS
 - Github Actions Workflows for ongoing operations
+
+## Provision Infrastructure
 
 - Option 1 - Setting up a complete new Application on your F5 BIG-IP through AS3 leveraging Consul integration: Follow the steps outlined below.
 - Option 2 - Migrating an existing F5 BIG-IP deployment to leverage AS3 Consul integration: Follow the steps outlined in [`README.md`](brownfield-approach/README.md) within `brownfield-approach` subfolder.
 
-## Provision Infrastructure
 
 The `terraform` directory has tf files for creating instances for consul, f5, iam policy, nginx servers with autoscale group.
 
