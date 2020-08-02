@@ -77,7 +77,7 @@ BIG-IP.\
 \
 While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github.\ 
 
-Personal Github accounts are free and, if you don't already have one, please see this link: https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github
+Personal Github accounts are free and, if you don't already have one, please see this link: `[Signing up for Github]`(https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
 
 ### Workflows
 Workflows are automatically triggered when Consul or AS3 declarations are pushed to your Github repo.
@@ -111,6 +111,6 @@ This module attempts to download the rpom automatically, but you can also downlo
 
 
 ### Product Versions
-- BIG-IP image used is 15.1.02 version
+- BIG-IP image used is 15.1.04 version
 - AS3 rpm used is [3.19.1 version](https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.19.1/f5-appsvcs-3.19.1-1.noarch.rpm)
 - HashiCorp & F5 webinar based on https://clouddocs.f5.com/cloud/public/v1/aws/AWS_singleNIC.html
