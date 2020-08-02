@@ -75,7 +75,9 @@ terraform apply
 After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in 
 BIG-IP.\
 \
-While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github. 
+While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github.\ 
+
+Personal Github accounts are free and, if you don't already have one, please see this link: https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github
 
 ### Workflows
 Workflows are automatically triggered when Consul or AS3 declarations are pushed to your Github repo.
