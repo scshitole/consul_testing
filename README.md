@@ -73,7 +73,7 @@ terraform apply
 
 ## Github Actions Workflows
 After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in BIG-IP.
-| While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to 
+.. While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to 
 
 ### Folder as3
 Folder as3 has three files, `main.tf`, `nginx.json` and `variables.tf`. `main.tf` is used to provision `nginx.json` template to BIG-IP once its ready.
