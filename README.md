@@ -77,8 +77,10 @@ BIG-IP.\
 \
 While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to also need to have a clone in Github.\
 \
+### Workflows
 Workflows are triggered when Consul or AS3 declarations are pushed to the Github repo. There are four workflows defined:
 - Consul register
+  - Put services to be defined in Consul in the /declarations/consul/register directory
 - Consul deregister
 - AS3 register
 - AS3 deregister
