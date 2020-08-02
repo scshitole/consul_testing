@@ -87,7 +87,6 @@ Prerequisites:
     - AWS_ACCESS_KEY_ID = <AWS Access Key>
     - AWS_ACCESS_SECRET_KEY = <AWS Secret Access Key>
 
-\ 
 There are four workflows defined:
 - Register New Consul Service
   -  Put new service definitions to be registered in Consul in the /declarations/consul/register directory, commit and push to Github
