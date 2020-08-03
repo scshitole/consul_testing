@@ -87,10 +87,13 @@ jobs:
       if: steps.verify.outputs.verify_results && steps.files.output.added
       run: |
         for changed_file in ${{ steps.files.outputs.added }}; do
+        if [[ $changed_file =~  ^declarations/as3/register/.* ]]
+        then
           echo "name of chnaged file = ${changed_file}"
           echo ::set-output name=deploy_results::$(f5 bigip extension as3 create --declaration ${changed_file} 2>&1 | jq '.results[0] .code')
           echo "F5 AS3 declaration deploy result #1 = $deploy_results"
-          echo "F5 AS3 declaration deploy result #2 = ${{ steps.deploy_as3.outputs.deploy_results }}"          
+          echo "F5 AS3 declaration deploy result #2 = ${{ steps.deploy_as3.outputs.deploy_results }}"
+        fi          
         done
     
     - name: show f5 as3 deploy result
