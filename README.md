@@ -82,10 +82,10 @@ Personal Github accounts are free and support Github Actions workflows. If you d
 
 From your Github account, create an empty repository that will be populated from the Git repo on your local computer. For more information on how to create a new repo in Github, please see [Create a repo](https://docs.github.com/en/github/getting-started-with-github/create-a-repo).
 
-Once you have an empty Github repo, you will need to push your local Git repo to your Github repo. Complete the following steps, replacing "myAccount" and "myRepo" with the appropriate values:
+Once you have an empty Github repo, you will need to push your local Git repo to your Github repo. Complete the following steps, replacing **myAccount** and **myRepo** with the appropriate values:
 ```
 Change directory to the root of your local Git repo
-git remote add origin https://github.com/`<myAccount>`/`<myRepo>.git`
+git remote add origin https://github.com/**myAccount**/**myRepo**
 git push -u origin master
 ```
 
