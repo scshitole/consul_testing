@@ -84,9 +84,9 @@ jobs:
       
     - name: deploy as3 declaration
       id: deploy_as3
-      if: steps.verify.outputs.verify_results && steps.files.output.added_modified
+      # if: steps.verify.outputs.verify_results && steps.files.output.added_modified
       run: |
-        for changed_file in ${{ steps.files.outputs.added }}; do
+        for changed_file in ${{ steps.files.outputs.added_modified }}; do
         if [[ $changed_file =~  ^declarations/as3/register/.* ]]
         then
           echo "name of chnaged file = ${changed_file}"
