@@ -72,7 +72,7 @@ terraform apply
 - Use http://consul_public_IP:8500 to access the consul server and check the status of consul nodes count
 
 ## Github Actions Workflows
-After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. Github Actions is a CI/CD tool integrated in to Github. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in BIG-IP.\
+After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. Github Actions is a CI/CD tool integrated in to Github. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in BIG-IP.
 
 For more information about Github Actions workflows, please see [Github Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions)
 
