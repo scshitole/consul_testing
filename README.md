@@ -72,12 +72,19 @@ terraform apply
 - Use http://consul_public_IP:8500 to access the consul server and check the status of consul nodes count
 
 ## Github Actions Workflows
-After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in 
+After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. Github Actions is an CI/CD tool integrated in to Github. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in 
 BIG-IP.\
 \
-While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github. 
+While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to an empty repo in Github.
 \
 Personal Github accounts are free and, if you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
+
+From your Github account, create an empty repository that will be populated from the Git repo on your local computer. For more information on how to create a new repo in Github, please see [Create a repo] (https://docs.github.com/en/github/getting-started-with-github/create-a-repo).
+
+Once you have an empty Github repo, you will need to push your local Git repo to your Github repo. Complete the following steps, replacing "myAccount" and "myRepo" with the appropriate values:
+- Change directory to the root of your local Git repo
+- git remote add origin https://github.com/<myAccount>/<myRepo>.git
+- git push -u origin master
 
 ### Workflows
 Workflows are automatically triggered when Consul or AS3 declarations are pushed to your Github repo.
