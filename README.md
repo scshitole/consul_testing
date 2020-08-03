@@ -115,12 +115,21 @@ Github Action workflows are triggered by Github events. In the following example
 Use cases:
 - Register a new service in Consul
 ```
-  - cd examples
-  - cp example-service.json ../declarations/consul/register
-  - cd declarations/consul/register
-  - git add example-service.json
-  - git commit -m "Added new Consul service"
-  - git push
+  cp examples/example-service.json declarations/consul/register
+  cd declarations/consul/register
+  git add example-service.json
+  git commit -m "Added new Consul service"
+  git push
+```
+Once completed, the new, example service should be registered an visible in the Consul dashboard
+|
+- De-register a service in Consul
+```
+  cp examples/example-service.json declarations/consul/deregister
+  cd declarations/consul/deregister
+  git add example-service.json
+  git commit -m "Deleted Consul service"
+  git push
 ```
 
 
