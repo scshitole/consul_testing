@@ -149,7 +149,7 @@ Once completed, the new, example AS3 declaration should be registered in the BIG
 Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
  
 | Additionally, you can view the workflow steps in the **Actions** section of your Github repo.  
-**De-register a new AS3 declaration on BIG-IP**
+| **De-register an existing AS3 declaration**  
 ```
 Change directory to the root of your local Git repo
 cp declarations/as3/examples/empty-example-as3.json declarations/as3/deregister
