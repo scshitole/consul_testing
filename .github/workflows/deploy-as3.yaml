@@ -84,7 +84,7 @@ jobs:
       
     - name: deploy as3 declaration
       id: deploy_as3
-      if: steps.verify.outputs.verify_results && steps.files.output.added
+      if: steps.verify.outputs.verify_results && steps.files.output.added_modified
       run: |
         for changed_file in ${{ steps.files.outputs.added }}; do
         if [[ $changed_file =~  ^declarations/as3/register/.* ]]
