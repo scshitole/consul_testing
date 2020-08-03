@@ -16,13 +16,16 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    # The type of runner (virtual machine os type) that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    - name: read terraform values
+      run: cat terraform/variables.tf
 
     - name: read S3 bucket
       uses: prewk/s3-cp-action@master

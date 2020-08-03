@@ -26,6 +26,9 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: read terraform values
+      run: cat terraform/variables.tf
+
     - name: read S3 bucket
       uses: prewk/s3-cp-action@master
       env:
