@@ -113,7 +113,7 @@ There are four workflows defined:
 Github Action workflows are triggered by Github events. In the following examples, the workflows are triggered when updates are pushed from your local Git repo to your Github repo. You can use the provided examples to test registering and deregistering Consul services and AS3 declarations or use your own.
 |  
 Use Cases:
-| 
+
 **Register a new service in Consul**
 ```
 Change directory to the root of your local Git repo
@@ -145,7 +145,9 @@ git add example-as3.json
 git commit -m "Added new AS3 declaration"
 git push
 ```
-Once completed, the new, example AS3 declaration should be registered in the BIG-IP. The example AS3 declaration creates a tenant (BIG-IP partion) named **Example**. To view the BIG-IP configuration that was created from the example AS3 declaration, use the partition drop down and select the partition named **Example**.
+Once completed, the new, example AS3 declaration should be registered in the BIG-IP. The example AS3 declaration creates a tenant (BIG-IP partion) named **Example**.
+
+ To view the BIG-IP configuration that was created from the example AS3 declaration, use the partition drop down and select the partition named **Example**.
 |  
 Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
  
@@ -161,7 +163,7 @@ git push
 ```
 Once completed, partition named **Example** and the associated BIG-IP configuration objects are deleted.
   
-| Additionally, you can view the workflow steps in the **Actions** section of your Github repo.  
+Additionally, you can view the workflow steps in the **Actions** section of your Github repo.  
 
 
 
