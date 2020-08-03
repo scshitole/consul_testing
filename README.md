@@ -109,6 +109,20 @@ There are four workflows defined:
 - Deregister Existing AS3 Declaration
   - Put empty AS3 declarations to be de-registered in BIG-IP in the /declarations/as3/deregister directory, commit and push to Github
 
+## How to test Github Actions workflows?
+Github Action workflows are triggered by Github events. In the following examples, the workflows are triggered when updates are pushed from your local Git repo to your Github repo. You can use the provided examples to test registering and deregistering Consul services and AS3 declarations or use your own.
+\
+Use cases:
+- Register a new service in Consul
+```
+  + cd examples
+  + cp example-service.json ../declarations/consul/register
+  + cd declarations/consul/register
+  + git add example-service.json
+  + git commit -m "Added new Consul service"
+  + git push
+```
+
 
 # Assets
 ### Folder as3
