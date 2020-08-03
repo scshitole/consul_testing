@@ -145,7 +145,7 @@ git commit -m "Added new AS3 declaration"
 git push
 ```
 Once completed, the new, example AS3 declaration should be registered in the BIG-IP. The example AS3 declaration creates a tenant (BIG-IP partion) named **Example**. To view the BIG-IP configuration that was created from the example AS3 declaration, use the partition drop down and select the partition named **Example**.
-|  
+|
  Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
 
 
