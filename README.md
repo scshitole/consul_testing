@@ -134,7 +134,7 @@ git commit -m "Deleted Consul service"
 git push
 ```
 Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
-| 
+|  
 **Register a new AS3 declaration on BIG-IP**
 ```
 Change directory to the root of your local Git repo
