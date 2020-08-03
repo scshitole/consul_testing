@@ -100,12 +100,16 @@ Prerequisites:
 For information on how to create Github secrets, please see [Github Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)  
 
 There are four workflows defined:
+
 **Register New Consul Service**
   -  Put new service definitions to be registered in Consul in the /declarations/consul/register directory, commit and push to Github
+
 **Deregister Existing Consul Service**
   - Put existing service definitions to be de-registered in Consul in the /declarations/consul/deregister directory, commit and push to Github
+
 **Register New AS3 Declaration**
   - Put new AS3 declarations to be registered in BIG-IP in the /declarations/as3/register directory, commit and push to Github
+  
 **Deregister Existing AS3 Declaration**
   - Put empty AS3 declarations to be de-registered in BIG-IP in the /declarations/as3/deregister directory, commit and push to Github
 
