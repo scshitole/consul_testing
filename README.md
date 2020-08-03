@@ -73,11 +73,11 @@ terraform apply
 
 ## Github Actions Workflows
 After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. Github Actions is a CI/CD tool integrated in to Github. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in BIG-IP.\
-\
+
 For more information about Github Actions workflows, please see [Github Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions)
-\
+
 While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to an empty repo in Github.
-\ 
+
 Personal Github accounts are free and support Github Actions workflows. If you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
 
 From your Github account, create an empty repository that will be populated from the Git repo on your local computer. For more information on how to create a new repo in Github, please see [Create a repo](https://docs.github.com/en/github/getting-started-with-github/create-a-repo).
@@ -109,7 +109,7 @@ There are four workflows defined:
 
 **Register New AS3 Declaration**
   - Put new AS3 declarations to be registered in BIG-IP in the /declarations/as3/register directory, commit and push to Github
-  
+
 **Deregister Existing AS3 Declaration**
   - Put empty AS3 declarations to be de-registered in BIG-IP in the /declarations/as3/deregister directory, commit and push to Github
 
