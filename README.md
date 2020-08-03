@@ -116,7 +116,7 @@ Use cases:
 - Register a new service in Consul
 ```
 Change directory to the root of your local Git repo
-cp examples/example-service.json declarations/consul/register
+cp declarations/consul/examples/example-service.json declarations/consul/register
 cd declarations/consul/register
 git add example-service.json
 git commit -m "Added new Consul service"
@@ -127,13 +127,24 @@ Once completed, the new, example service should be registered an visible in the 
 - De-register a service in Consul
 ```
 Change directory to the root of your local Git repo
-cp examples/example-service.json declarations/consul/deregister
+cp declarations/consul/examples/example-service.json declarations/consul/deregister
 cd declarations/consul/deregister
 git add example-service.json
 git commit -m "Deleted Consul service"
 git push
 ```
 Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
+| 
+- Register a new AS3 declaration on BIG-IP
+```
+Change directory to the root of 
+cp declarations/as3/examples/example-as3.json declarations/as3/register
+cd declarations/as3/register
+git add example-as3.json
+git commit -m "Added new AS3 declaration"
+git push
+```
+Once completed, the new, example AS3 declaration should be registered in the BIG-IP. The example AS3 declaration creates a tenant (BIG-IP partion) named **Example**. To view the BIG-IP configuration that was created from the example AS3 declaration, use the partition drop down and select the partition named **Example**. Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
 
 
 # Assets
