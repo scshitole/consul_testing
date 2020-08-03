@@ -159,8 +159,8 @@ git commit -m "Deleted AS3 declaration"
 git push
 ```
 Once completed, partition named **Example** and the associated BIG-IP configuration objects are deleted.
-|  
-Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
+  
+| Additionally, you can view the workflow steps in the **Actions** section of your Github repo.  
 
 
 
