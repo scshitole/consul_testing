@@ -75,8 +75,8 @@ terraform apply
 After the initial provisioning of the infrastructure in AWS, ongoing, daily operations are implemented in Github Actions workflows. These workflows run in Github and allow you to register and deregister new services in Consul and AS3 declarations in 
 BIG-IP.\
 \
-While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github.\ 
-
+While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to your Github. 
+\
 Personal Github accounts are free and, if you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
 
 ### Workflows
@@ -84,10 +84,11 @@ Workflows are automatically triggered when Consul or AS3 declarations are pushed
 
 Prerequisites:
   - Need to create two Github Secrets:
-    - AWS_ACCESS_KEY_ID = `<AWS Access Key>`
-    - AWS_ACCESS_SECRET_KEY = `<AWS Secret Access Key>`
-\   
- For information on how to create Github secrets, please see [Github Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)  
+    + AWS_ACCESS_KEY_ID = `<AWS Access Key>`
+    + AWS_ACCESS_SECRET_KEY = `<AWS Secret Access Key>`
+
+\
+For information on how to create Github secrets, please see [Github Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)  
 
 There are four workflows defined:
 - Register New Consul Service
@@ -110,8 +111,9 @@ This module attempts to download the rpom automatically, but you can also downlo
 `f5.tpl` is used to change the admin password.
 `nginx.sh` is used to install consul agent on nginx servers
 
-
 ### Product Versions
 - BIG-IP image used is 15.1.04 version
 - AS3 rpm used is [3.19.1 version](https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.19.1/f5-appsvcs-3.19.1-1.noarch.rpm)
 - HashiCorp & F5 webinar based on https://clouddocs.f5.com/cloud/public/v1/aws/AWS_singleNIC.html
+
+### Worflow folders
