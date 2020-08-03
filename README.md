@@ -100,13 +100,13 @@ Prerequisites:
 For information on how to create Github secrets, please see [Github Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)  
 
 There are four workflows defined:
-- Register New Consul Service
+**Register New Consul Service**
   -  Put new service definitions to be registered in Consul in the /declarations/consul/register directory, commit and push to Github
-- Deregister Existing Consul Service
+**Deregister Existing Consul Service**
   - Put existing service definitions to be de-registered in Consul in the /declarations/consul/deregister directory, commit and push to Github
-- Register New AS3 Declaration
+**Register New AS3 Declaration**
   - Put new AS3 declarations to be registered in BIG-IP in the /declarations/as3/register directory, commit and push to Github
-- Deregister Existing AS3 Declaration
+**Deregister Existing AS3 Declaration**
   - Put empty AS3 declarations to be de-registered in BIG-IP in the /declarations/as3/deregister directory, commit and push to Github
 
 ## Test Github Actions workflows
@@ -135,7 +135,7 @@ git commit -m "Deleted Consul service"
 git push
 ```
 Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
-|  
+
 **Register a new AS3 declaration on BIG-IP**
 ```
 Change directory to the root of your local Git repo
@@ -151,8 +151,9 @@ To view the BIG-IP configuration that was created from the example AS3 declarati
 
 Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
  
-| Additionally, you can view the workflow steps in the **Actions** section of your Github repo.  
-| **De-register an existing AS3 declaration**  
+Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
+
+**De-register an existing AS3 declaration**  
 ```
 Change directory to the root of your local Git repo
 cp declarations/as3/examples/empty-example-as3.json declarations/as3/deregister
