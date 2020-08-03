@@ -122,7 +122,7 @@ git add example-service.json
 git commit -m "Added new Consul service"
 git push
 ```
-Once completed, the new, example service should be registered an visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
+Once completed, the new, example service should be registered an visible in the Consul dashboard. Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
 
 - De-register a service in Consul
 ```
@@ -133,7 +133,7 @@ git add example-service.json
 git commit -m "Deleted Consul service"
 git push
 ```
-Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
+Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
 | 
 - Register a new AS3 declaration on BIG-IP
 ```
@@ -145,8 +145,23 @@ git commit -m "Added new AS3 declaration"
 git push
 ```
 Once completed, the new, example AS3 declaration should be registered in the BIG-IP. The example AS3 declaration creates a tenant (BIG-IP partion) named **Example**. To view the BIG-IP configuration that was created from the example AS3 declaration, use the partition drop down and select the partition named **Example**.
-|
- Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
+|  
+Check out the virtual server, pool and pool members that were created with the pool members being populated automatically by the AS3 Consul service discovery process.
+|  
+Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
+- De-register a new AS3 declaration on BIG-IP
+```
+Change directory to the root of 
+cp declarations/as3/examples/empty-example-as3.json declarations/as3/deregister
+cd declarations/as3/deregister
+git add empty-example-as3.json
+git commit -m "Deleted AS3 declaration"
+git push
+```
+Once completed, partition named **Example** and the associated BIG-IP configuration objects are deleted.
+|  
+Additionally, you can view the workflow steps in the **Actions** section of your Github repo.
+
 
 
 # Assets
