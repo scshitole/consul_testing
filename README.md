@@ -78,7 +78,7 @@ For more information about Github Actions workflows, please see [Github Actions]
 \
 While the steps to provision the infrastructure are run locally on your desktop via Terraform, the Github Actions workflows are actually running in Github. What this means is that, in addition to cloning this repo to your local desktop, you will also need to have a Github account and clone this repo to an empty repo in Github.
 \ 
-Personal Github accounts are free and, if you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
+Personal Github accounts are free and support Github Actions workflows. If you don't already have one, please see this link: [Signing up for Github](https://docs.github.com/en/github/getting-started-with-github/signing-up-for-github)
 
 From your Github account, create an empty repository that will be populated from the Git repo on your local computer. For more information on how to create a new repo in Github, please see [Create a repo](https://docs.github.com/en/github/getting-started-with-github/create-a-repo).
 
@@ -115,23 +115,23 @@ Github Action workflows are triggered by Github events. In the following example
 Use cases:
 - Register a new service in Consul
 ```
-  Change directory to the root of your local Git repo
-  cp examples/example-service.json declarations/consul/register
-  cd declarations/consul/register
-  git add example-service.json
-  git commit -m "Added new Consul service"
-  git push
+Change directory to the root of your local Git repo
+cp examples/example-service.json declarations/consul/register
+cd declarations/consul/register
+git add example-service.json
+git commit -m "Added new Consul service"
+git push
 ```
 Once completed, the new, example service should be registered an visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
 
 - De-register a service in Consul
 ```
-  * Change directory to the root of your local Git repo
-  * cp examples/example-service.json declarations/consul/deregister
-  * cd declarations/consul/deregister
-  * git add example-service.json
-  * git commit -m "Deleted Consul service"
-  * git push
+Change directory to the root of your local Git repo
+cp examples/example-service.json declarations/consul/deregister
+cd declarations/consul/deregister
+git add example-service.json
+git commit -m "Deleted Consul service"
+git push
 ```
 Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
 
