@@ -113,6 +113,7 @@ There are four workflows defined:
 Github Action workflows are triggered by Github events. In the following examples, the workflows are triggered when updates are pushed from your local Git repo to your Github repo. You can use the provided examples to test registering and deregistering Consul services and AS3 declarations or use your own.
 |  
 Use Cases:
+| 
 **Register a new service in Consul**
 ```
 Change directory to the root of your local Git repo
