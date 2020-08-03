@@ -5,7 +5,9 @@ on:
     paths:
     - "declarations/as3/register/**"
     - "declarations/as3/deregister/**"
-    branches: [ master ]
+    branches: 
+    - master
+    - dev
 
 jobs:
   build:
