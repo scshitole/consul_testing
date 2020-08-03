@@ -26,6 +26,7 @@
         ],
         "members": [
           {
+            "shareNodes": true,
             "servicePort": 80,
             "addressDiscovery": "consul",
             "updateInterval": 10,
