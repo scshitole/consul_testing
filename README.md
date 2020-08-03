@@ -84,9 +84,9 @@ From your Github account, create an empty repository that will be populated from
 
 Once you have an empty Github repo, you will need to push your local Git repo to your Github repo. Complete the following steps, replacing "myAccount" and "myRepo" with the appropriate values:
 ```
-- Change directory to the root of your local Git repo
-- git remote add origin https://github.com/`<myAccount>`/`<myRepo>.git`
-- git push -u origin master
+Change directory to the root of your local Git repo
+git remote add origin https://github.com/`<myAccount>`/`<myRepo>.git`
+git push -u origin master
 ```
 
 ### Workflows
@@ -115,22 +115,25 @@ Github Action workflows are triggered by Github events. In the following example
 Use cases:
 - Register a new service in Consul
 ```
+  Change directory to the root of your local Git repo
   cp examples/example-service.json declarations/consul/register
   cd declarations/consul/register
   git add example-service.json
   git commit -m "Added new Consul service"
   git push
 ```
-Once completed, the new, example service should be registered an visible in the Consul dashboard
-|
+Once completed, the new, example service should be registered an visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
+
 - De-register a service in Consul
 ```
-  cp examples/example-service.json declarations/consul/deregister
-  cd declarations/consul/deregister
-  git add example-service.json
-  git commit -m "Deleted Consul service"
-  git push
+  * Change directory to the root of your local Git repo
+  * cp examples/example-service.json declarations/consul/deregister
+  * cd declarations/consul/deregister
+  * git add example-service.json
+  * git commit -m "Deleted Consul service"
+  * git push
 ```
+Once completed, the example service should be de-registered and no longer visible in the Consul dashboard. Additionally, you can view the workflow steps in the "Actions" section of your Github repo.
 
 
 # Assets
