@@ -34,6 +34,6 @@ data "template_file" "s3_values" {
 
 resource "null_resource" "export_rendered_template" {
   provisioner "local-exec" {
-    command = "cat > ../s3_bucket_params.json << EOL\n ${data.template_file.s3_values.rendered}\nEOL"
+    command = "cat > s3_bucket_params.json << EOL\n ${data.template_file.s3_values.rendered}\nEOL"
   }
 }
