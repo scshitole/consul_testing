@@ -23,6 +23,21 @@ resource "null_resource" "export_rendered_s3_template" {
   }
 }
 
+data "template_file" "as3_s3" {
+  template = file("../templates/as3_s3.tpl")
+  vars = {
+    bucket_name = "${var.prefix}-consul-sd"
+    bucket_key = "deploy-as3"
+    bucket_region = "${var.region}"
+  }
+}
+
+resource "null_resource" "export_rendered_s3_template" {
+  provisioner "local-exec" {
+    command = "cat > ../as3/bucket.tf << EOL\n ${data.template_file.as3_s3.rendered}\nEOL"
+  }
+}
+
 data "template_file" "s3_values" {
   template = file("../templates/s3_values.tpl")
   vars = {
