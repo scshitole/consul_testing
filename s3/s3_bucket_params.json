@@ -1,5 +1,5 @@
- bucket {
-  name = dgarrison-consul-sd
-  key    = deploy-infrastructure
-  region = us-east-1
+bucket {
+ name: dgarrison-consul-sd
+ key: deploy-infrastructure
+ regon: us-east-1
 }
