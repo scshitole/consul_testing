@@ -46,7 +46,6 @@ jobs:
     - name: Install Consul CLI & Consul Templating
       run: |
        sudo sh ./consul.sh
-       sudo sh ./consul_template.sh
 
     # Runs a set of commands using the runners shell
     - name: Check version of Consul
@@ -61,12 +60,6 @@ jobs:
       id: consul_host
       run: | 
         echo ::set-output name=consul_host::$(cat ./s3-variables | jq '.outputs.Consul_UI.value')
-
-    - name: Consul Templating
-      run: consul-template -consul-addr=${{ steps.consul_host.outputs.consul_host }} -once -template "./templates/david-as3.tpl:./as3-rendered.json"
-
-    - name: Show rendered output
-      run: cat as3-rendered.json
 
     - name: get list of changed files
       id: files
