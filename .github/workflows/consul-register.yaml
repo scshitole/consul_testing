@@ -29,9 +29,9 @@ jobs:
     - name: Read S3 bucket parameters
       id: s3_bucket
       run: | 
-         echo ::set-output name=s3_bucket_name::$(cat ./s3_bucket_params.json | jq '.bucket.name')
-         echo ::set-output name=s3_bucket_key::$(cat ./s3_bucket_params.json | jq '.bucket.key')
-         echo ::set-output name=s3_bucket_region::$(cat ./s3_bucket_params.json | jq '.bucket.region')
+         echo ::set-output name=s3_bucket_name::$(cat ./s3/s3_bucket_params.json | jq '.bucket.name')
+         echo ::set-output name=s3_bucket_key::$(cat ./s3/s3_bucket_params.json | jq '.bucket.key')
+         echo ::set-output name=s3_bucket_region::$(cat ./s3/s3_bucket_params.json | jq '.bucket.region')
 
     - name: read S3 bucket
       uses: prewk/s3-cp-action@master
