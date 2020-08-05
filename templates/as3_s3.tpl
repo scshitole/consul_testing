@@ -1,16 +1,16 @@
 terraform {
   backend "s3" {
-    bucket = "${prefix}-consul-sd"
+    bucket = "${bucket_name}"
     key    = "deploy-as3"
-    region = "${region}"
+    region = "${bucket_region}"
   }
 }
 
 data "terraform_remote_state" "consul_sd" {
    backend = "s3"
    config = {
-     bucket = "${prefix}-consul-sd"
+     bucket = "${bucket_name}"
      key    = "deploy-infrastructure"
-     region = "${region}"
+     region = "${bucket_region}"
    }
  }
