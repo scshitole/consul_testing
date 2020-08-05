@@ -75,15 +75,15 @@ jobs:
         fi
         done
 
-    - name: Register Renamed Service Definitions
-      run: |
-        export CONSUL_HTTP_SSL_VERIFY=false
-        for changed_file in ${{ steps.files.outputs.renamed }}; do
-        if [[ $changed_file =~  ^declarations/consul/register/.* ]]
-        then
-          (consul services register -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
-        fi
-        done
+    # - name: Register Renamed Service Definitions
+    #   run: |
+    #     export CONSUL_HTTP_SSL_VERIFY=false
+    #     for changed_file in ${{ steps.files.outputs.renamed }}; do
+    #     if [[ $changed_file =~  ^declarations/consul/register/.* ]]
+    #     then
+    #       (consul services register -http-addr=${{ steps.consul_host.outputs.consul_host }} ${changed_file})
+    #     fi
+    #     done
         
     - name: Show Registered Services
       run: |
