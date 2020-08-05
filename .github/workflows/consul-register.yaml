@@ -39,8 +39,8 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ steps.s3_bucket.outputs.s3_bucket_region }}
-        SOURCE: 's3://${{ steps.s3_bucket.outputs.s3_bucket_name }}/${{ steps.s3_bucket.outputs.s3_bucket_key }}'
-        DEST: './s3-variables'
+        SOURCE: s3://${{ steps.s3_bucket.outputs.s3_bucket_name }}/${{ steps.s3_bucket.outputs.s3_bucket_key }}
+        DEST: ./s3-variables
 
     # Runs a single command using the runners shell
     - name: Install Consul CLI & Consul Templating
