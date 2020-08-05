@@ -8,7 +8,9 @@ on:
   push:
     paths:
     - "declarations/consul/deregister/**"
-    branches: [ master ]
+    branches: 
+      - master
+      - dev
   pull_request:
     branches: [ master ]
 
