@@ -1,0 +1,5 @@
+ bucket {
+  name = dgarrison-consul-sd
+  key    = deploy-infrastructure
+  region = us-east-1
+}
