@@ -1,6 +1,6 @@
  terraform {
   backend "s3" {
-    bucket = "dgarrison-consul-sd"
+    bucket = "scsft-consul-sd"
     key    = "deploy-infrastructure"
     region = "us-east-1"
   }

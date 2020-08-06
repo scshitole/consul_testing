@@ -1,6 +1,6 @@
  { 
   "bucket": {
-    "name": "dgarrison-consul-sd",
+    "name": "scsft-consul-sd",
     "key": "deploy-infrastructure",
     "region": "us-east-1"
   }
